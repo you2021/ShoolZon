@@ -1,9 +1,13 @@
 package com.juj27.shoolzon;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -34,8 +38,13 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
-        Toast.makeText(this, ""+G.localnum, Toast.LENGTH_SHORT).show();
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayShowTitleEnabled(false);
+        ac.setDisplayHomeAsUpEnabled(true);
+        TextView tv = findViewById(R.id.tv);
+        tv.setText(G.local+"에 대한 결과");
 
         //리스트 뷰 테스트
 //        items.add("aaa");
@@ -45,8 +54,6 @@ public class SecondActivity extends AppCompatActivity {
         listView = findViewById(R.id.listview);
         adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,items);
         listView.setAdapter(adapter);
-
-
 
         Thread t = new Thread(){
             @Override
@@ -71,8 +78,6 @@ public class SecondActivity extends AppCompatActivity {
                     xpp.setInput(isr);
                     int eventType = xpp.getEventType();
                     StringBuffer buffer = null;
-
-
 
                     boolean isData = false;
 
@@ -149,6 +154,16 @@ public class SecondActivity extends AppCompatActivity {
 
         TextView tvEmpty = findViewById(R.id.tv_empty);
         listView.setEmptyView(tvEmpty);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId()==android.R.id.home){
+            onBackPressed();
+        }
+
+        return super.onOptionsItemSelected(item);
 
     }
 }

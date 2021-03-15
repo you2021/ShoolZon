@@ -8,14 +8,21 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="스쿨존 어린이 사고 다발지역 정보 "
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:textColor="#ff333333"
-        android:layout_gravity="center"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스쿨존 어린이 사고 다발지역 정보 "
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:textColor="#ff333333"
+            android:layout_gravity="center"/>
+
+    </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,7 +40,8 @@
         android:layout_height="wrap_content"
         android:entries="@array/year"
         android:prompt="@string/promt_year"
-        android:layout_margin="40dp"/>
+        android:layout_margin="40dp"
+        android:background="@drawable/bg_btn_n"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,15 +59,16 @@
         android:layout_height="wrap_content"
         android:entries="@array/local"
         android:prompt="@string/promt_local"
-        android:layout_margin="40dp"/>
+        android:layout_margin="40dp"
+        android:background="@drawable/bg_btn_n"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="확인"
         android:layout_gravity="center"
-        android:background="@drawable/bg_btn_selector"
-        android:backgroundTint="@null"
+        android:textColor="@color/black"
+        android:backgroundTint="#FFE492"
         android:onClick="clickBtn"/>
 
 
