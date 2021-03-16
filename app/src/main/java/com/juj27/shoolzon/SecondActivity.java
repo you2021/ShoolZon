@@ -5,9 +5,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -32,6 +34,8 @@ public class SecondActivity extends AppCompatActivity {
 
     // api - key
     String apiKey = "jm%2BV99ax5hk0m28XFpy%2Bfc7p0suKAScnNbghyViodg2AJebd8iQEay2W%2B6QXbhrI0EbEspk5JwNLQe%2BjAEFuhw%3D%3D";
+
+    boolean isData = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +83,7 @@ public class SecondActivity extends AppCompatActivity {
                     int eventType = xpp.getEventType();
                     StringBuffer buffer = null;
 
-                    boolean isData = false;
+
 
                     while (eventType != XmlPullParser.END_DOCUMENT){
                         switch (eventType){
@@ -104,7 +108,7 @@ public class SecondActivity extends AppCompatActivity {
                                 }else if(tagName.equals("occrrnc_cnt")){
                                     buffer.append("발생건수 : ");
                                     xpp.next();
-                                    buffer.append(xpp.getText()+"명"+"\n");
+                                    buffer.append(xpp.getText()+"건"+"\n");
                                 }else if(tagName.equals("caslt_cnt")){
                                     buffer.append("사상자 수 : ");
                                     xpp.next();
@@ -165,5 +169,14 @@ public class SecondActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
 
+    }
+
+    public void clickMap(View view) {
+        if (isData) {
+            Intent intent = new Intent(this, MapActivity.class);
+            startActivity(intent);
+        }else {
+            Toast.makeText(this, "사고가 없습니다.", Toast.LENGTH_SHORT).show();
+        }
     }
 }
