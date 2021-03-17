@@ -8,13 +8,13 @@
     tools:context=".MapActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/toolbar_map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp">
 
         <TextView
-            android:id="@+id/tv"
+            android:id="@+id/tv_map"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="결과 "

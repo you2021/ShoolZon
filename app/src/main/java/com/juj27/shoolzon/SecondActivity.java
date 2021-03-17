@@ -176,7 +176,7 @@ public class SecondActivity extends AppCompatActivity {
             Intent intent = new Intent(this, MapActivity.class);
             startActivity(intent);
         }else {
-            Toast.makeText(this, "사고가 없습니다.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "확인할수 없습니다.", Toast.LENGTH_SHORT).show();
         }
     }
 }
