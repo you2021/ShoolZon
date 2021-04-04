@@ -12,8 +12,8 @@
     <ImageView
         android:layout_width="300dp"
         android:layout_height="150dp"
-        android:src="@drawable/zoon"
+        android:src="@drawable/zone"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="250dp"/>
+        android:layout_marginTop="300dp"/>
 
 </LinearLayout>
